@@ -1,0 +1,18 @@
+<p>adminhome works!</p>
+<p>Welcome : {{username}}</p>
+<table border="1">
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>email Address</td>
+    </tr>
+    <!-- without async pipe -->
+    <!-- <tr *ngFor="let u of users"> -->
+    
+    <!-- with async pipe -->
+    <tr *ngFor="let u of users  | async">
+        <td>{{u.id}}</td>
+        <td>{{u.name}}</td>
+        <td>{{u.email}}</td>
+    </tr>
+</table>

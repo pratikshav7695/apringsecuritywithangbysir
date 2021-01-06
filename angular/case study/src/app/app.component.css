@@ -1,0 +1,10 @@
+nav{
+    display: flex;
+}
+nav a{
+    padding: 10px 15px;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: grey;
+    width: 100%;
+}

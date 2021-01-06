@@ -1,0 +1,28 @@
+<h1>Login form</h1>
+<div [ngStyle]="{'color':'red'}" *ngIf="errorMessage">{{errorMessage}}</div>
+
+<form method="POST" #loginform="ngForm" (ngSubmit)="onLogin()" >
+    Username: <input type="text" 
+                    name="username" 
+                    [(ngModel)]="username" 
+                    required
+                    minlength="3"
+                    #un="ngModel"
+                    >
+    <div [ngStyle] = "{'color': 'red'}"
+                *ngIf="un?.invalid && un?.touched"   
+                >Please enter valid username(min 3 char)</div>
+    <br>
+    Password: <input type="password" 
+                name="password" 
+                [(ngModel)]="password"
+                required
+                minlength="3"
+                #pwd="ngModel"
+                >
+    <div [ngStyle] = "{'color': 'red'}"
+                    *ngIf="pwd?.invalid && pwd?.touched"
+                    >Please enter valid password(min 3 char)</div>
+    <br>
+    <input type="submit" value="Login">
+</form>

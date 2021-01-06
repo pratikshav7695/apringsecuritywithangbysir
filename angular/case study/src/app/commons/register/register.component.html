@@ -1,0 +1,15 @@
+<p>register works!</p>
+<h1>Reactive form</h1>
+<form [formGroup]="rForm">
+    username: <input type="text" formControlName="username">
+    <div *ngIf="rForm.controls.username?.touched && rForm.controls.username?.invalid">
+        Please enter valid username(min 3 char)
+    </div>
+    <br>
+    password: <input type="text" formControlName="password">
+    <div *ngIf="rForm.controls.password?.touched && rForm.controls.password?.invalid">
+        Please enter valid password(min 3 char)
+    </div>
+    <br>
+    <input type="submit" value="Register" (click)="regiter()">
+</form>

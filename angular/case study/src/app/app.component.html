@@ -1,0 +1,33 @@
+<header>
+    <nav>
+        <div>
+            <a routerLink="/">Home</a>
+        </div>
+        <!-- live update due to behaviour  -->
+        <div *ngIf="(userrole | async) as ur">
+            <a routerLink="/login" *ngIf="ur === null">login</a>
+        </div>
+
+        <div *ngIf="(userrole | async) as ur">
+            <a routerLink="/register" *ngIf="ur === null">register</a>
+        </div>
+
+        <div *ngIf="(userrole | async) as ur">
+            <a routerLink="/admin" *ngIf="ur === 'ROLE_ADMIN'">admin</a>
+        </div>
+
+        <div *ngIf="(userrole | async) as ur">
+            <a routerLink="/manager" *ngIf="ur === 'ROLE_MANAGER'">manager</a>
+        </div>
+
+        <div *ngIf="(userrole | async) as ur">
+            <a routerLink="/user" *ngIf="ur === 'ROLE_USER'">user</a>
+        </div>
+
+        <div *ngIf="(userrole | async) as ur">
+            <a (click)="logout()" *ngIf="ur">logout</a>
+        </div>
+    </nav>
+</header>
+<!-- here component will be loaded based on matching path -->
+<router-outlet></router-outlet>
